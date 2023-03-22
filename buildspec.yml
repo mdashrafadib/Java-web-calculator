@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: jdk1.8.0
+      java: java
     commands:
       - echo Installing Maven...
       - yum update -y
