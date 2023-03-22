@@ -3,9 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
-      - apt-get update
-      - apt-get install -y openjdk-11-jdk
-      - apt-get install -y maven
+      - yum -y update
+      - yum install -y openjdk-11-jdk
+      - yum install -y maven
   pre_build:
     commands:
       - echo "Starting Maven build"
