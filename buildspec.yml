@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+    commands:
+      - echo Installing Maven...
+      - yum update -y
+      - yum install -y maven
+
+  build:
+    commands:
+      - echo Building the project...
+      - mvn clean package
+      - echo Moving the WAR file to the build directory...
+      - mv target/*.war build/
+
+artifacts:
+  files:
+    - build/*.war
