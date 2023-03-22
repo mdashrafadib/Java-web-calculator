@@ -17,4 +17,4 @@ phases:
       - echo "Maven build completed"
 artifacts:
   files:
-    - target/webapp-0.1.war
+    - target/myapp.war
