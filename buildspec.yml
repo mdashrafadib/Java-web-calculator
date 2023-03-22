@@ -2,20 +2,19 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      java: java
     commands:
-      - echo Installing Maven...
-      - yum update -y
-      - yum install -y maven
-
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y maven
+  pre_build:
+    commands:
+      - echo "Starting Maven build"
   build:
     commands:
-      - echo Building the project...
-      - mvn clean package
-      - echo Moving the WAR file to the build directory...
-      - mv target/*.war build/
-
+      - mvn install
+  post_build:
+    commands:
+      - echo "Maven build completed"
 artifacts:
   files:
-    - build/*.war
+    - target/myapp.war
